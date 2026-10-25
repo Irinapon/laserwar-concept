@@ -1,0 +1,365 @@
+<svg id="laserwar-logo__icon" data-name="laserwar-logo__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="laserwar-logo">
+                    <title>laserwar logo</title>
+					<style>
+.cls-1{fill:#ff0000;opacity: 1;}					
+.laserwar-logo-1 {
+    animation: laserwar-logo-anim-1 linear 1.5s forwards;
+    animation-iteration-count: infinite
+}
+
+.laserwar-logo-2 {
+    animation: laserwar-logo-anim-2 linear 1.5s forwards;
+    animation-iteration-count: infinite
+}
+
+.laserwar-logo-3 {
+    animation: laserwar-logo-anim-3 linear 1.5s forwards;
+    animation-iteration-count: infinite
+}
+
+.laserwar-logo-4 {
+    animation: laserwar-logo-anim-4 linear 1.5s forwards;
+    animation-iteration-count: infinite
+}
+
+.laserwar-logo-5 {
+    animation: laserwar-logo-anim-5 linear 1.5s forwards;
+    animation-iteration-count: infinite
+}
+
+.laserwar-logo-6 {
+    animation: laserwar-logo-anim-6 linear 1.5s forwards;
+    animation-iteration-count: infinite
+}
+@keyframes laserwar-logo-anim-1 {
+    0% {
+        opacity: .8
+    }
+
+    8.333% {
+        opacity: 1
+    }
+
+    16.666% {
+        opacity: 1
+    }
+
+    24.999% {
+        opacity: 1
+    }
+
+    33.332% {
+        opacity: 1
+    }
+
+    41.665% {
+        opacity: 1
+    }
+
+    49.998% {
+        opacity: 1
+    }
+
+    58.331% {
+        opacity: 1
+    }
+
+    66.664% {
+        opacity: 1
+    }
+
+    74.997% {
+        opacity: 1
+    }
+
+    83.33% {
+        opacity: 1
+    }
+
+    91.663% {
+        opacity: .8
+    }
+
+    100% {
+        opacity: .8
+    }
+}
+
+@keyframes laserwar-logo-anim-2 {
+    0% {
+        opacity: .8
+    }
+
+    8.333% {
+        opacity: .8
+    }
+
+    16.666% {
+        opacity: 1
+    }
+
+    24.999% {
+        opacity: 1
+    }
+
+    33.332% {
+        opacity: 1
+    }
+
+    41.665% {
+        opacity: 1
+    }
+
+    49.998% {
+        opacity: 1
+    }
+
+    58.331% {
+        opacity: 1
+    }
+
+    66.664% {
+        opacity: 1
+    }
+
+    74.997% {
+        opacity: 1
+    }
+
+    83.33% {
+        opacity: 1
+    }
+
+    91.663% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: .8
+    }
+}
+
+@keyframes laserwar-logo-anim-3 {
+    0% {
+        opacity: .8
+    }
+
+    8.333% {
+        opacity: .8
+    }
+
+    16.666% {
+        opacity: .8
+    }
+
+    24.999% {
+        opacity: 1
+    }
+
+    33.332% {
+        opacity: 1
+    }
+
+    41.665% {
+        opacity: 1
+    }
+
+    49.998% {
+        opacity: 1
+    }
+
+    58.331% {
+        opacity: 1
+    }
+
+    66.664% {
+        opacity: 1
+    }
+
+    74.997% {
+        opacity: 1
+    }
+
+    83.33% {
+        opacity: .8
+    }
+
+    91.663% {
+        opacity: .8
+    }
+
+    100% {
+        opacity: .8
+    }
+}
+
+@keyframes laserwar-logo-anim-4 {
+    0% {
+        opacity: .8
+    }
+
+    8.333% {
+        opacity: .8
+    }
+
+    16.666% {
+        opacity: .8
+    }
+
+    24.999% {
+        opacity: .8
+    }
+
+    33.332% {
+        opacity: 1
+    }
+
+    41.665% {
+        opacity: 1
+    }
+
+    49.998% {
+        opacity: 1
+    }
+
+    58.331% {
+        opacity: .8
+    }
+
+    66.664% {
+        opacity: .8
+    }
+
+    74.997% {
+        opacity: .8
+    }
+
+    83.33% {
+        opacity: .8
+    }
+
+    91.663% {
+        opacity: .8
+    }
+
+    100% {
+        opacity: .8
+    }
+}
+
+@keyframes laserwar-logo-anim-5 {
+    0% {
+        opacity: .8
+    }
+
+    8.333% {
+        opacity: .8
+    }
+
+    16.666% {
+        opacity: .8
+    }
+
+    24.999% {
+        opacity: .8
+    }
+
+    33.332% {
+        opacity: .8
+    }
+
+    41.665% {
+        opacity: 1
+    }
+
+    49.998% {
+        opacity: 1
+    }
+
+    58.331% {
+        opacity: 1
+    }
+
+    66.664% {
+        opacity: .8
+    }
+
+    74.997% {
+        opacity: .8
+    }
+
+    83.33% {
+        opacity: .8
+    }
+
+    91.663% {
+        opacity: .8
+    }
+
+    100% {
+        opacity: .8
+    }
+}
+
+@keyframes laserwar-logo-anim-6 {
+    0% {
+        opacity: .8
+    }
+
+    8.333% {
+        opacity: .8
+    }
+
+    16.666% {
+        opacity: .8
+    }
+
+    24.999% {
+        opacity: .8
+    }
+
+    33.332% {
+        opacity: .8
+    }
+
+    41.665% {
+        opacity: .8
+    }
+
+    49.998% {
+        opacity: 1
+    }
+
+    58.331% {
+        opacity: 1
+    }
+
+    66.664% {
+        opacity: 1
+    }
+
+    74.997% {
+        opacity: .8
+    }
+
+    83.33% {
+        opacity: .8
+    }
+
+    91.663% {
+        opacity: .8
+    }
+
+    100% {
+        opacity: .8
+    }
+}
+</style>
+					
+                    <path class="cls-1 laserwar-logo-1" d="M151.87,160.63l-48,.34A9.8,9.8,0,0,0,98,163l-10.87,8.23a2.28,2.28,0,0,0,1.38,4.1h79.27a2.28,2.28,0,0,0,1.38-4.1l-11.32-8.56A9.86,9.86,0,0,0,151.87,160.63Z"></path>
+                    <path class="cls-1 laserwar-logo-2" d="M99.52,150.07l22.91-40a9.86,9.86,0,0,0,1.23-6.11l-2-16a2.28,2.28,0,0,0-4.24-.86l-40.6,70.32a2.28,2.28,0,0,0,2.86,3.24l15.13-6.39A9.76,9.76,0,0,0,99.52,150.07Z"></path>
+                    <path class="cls-1 laserwar-logo-3" d="M133.94,110l23.2,40.19a9.82,9.82,0,0,0,4.7,4.14l14.82,6.26a2.28,2.28,0,0,0,2.87-3.24l-40.6-70.32a2.28,2.28,0,0,0-4.24.86l-2,16A9.82,9.82,0,0,0,133.94,110Z"></path>
+                    <path class="cls-1 laserwar-logo-4" d="M140.84,38.6,138.4,58.17a12,12,0,0,0,1.51,7.47l58.67,101.62a12,12,0,0,0,5.71,5L222.46,180a2.54,2.54,0,0,0,3.19-3.61L145.56,37.64A2.54,2.54,0,0,0,140.84,38.6Z"></path>
+                    <path class="cls-1 laserwar-logo-5" d="M184.31,185.67H72a12,12,0,0,0-7.22,2.42L49.08,200a2.54,2.54,0,0,0,1.54,4.56H205.73a2.53,2.53,0,0,0,1.53-4.56l-15.73-11.91A12,12,0,0,0,184.31,185.67Z"></path>
+                    <path class="cls-1 laserwar-logo-6" d="M57.77,167.26,116.44,65.64A12,12,0,0,0,118,58.17L115.51,38.6a2.55,2.55,0,0,0-4.73-1L30.7,176.36A2.54,2.54,0,0,0,33.89,180l18.17-7.67A12.07,12.07,0,0,0,57.77,167.26Z"></path>
+                </svg>
