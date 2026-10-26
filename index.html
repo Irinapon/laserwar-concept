@@ -642,6 +642,9 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 .lsd{row-gap:var(--sp-lead)}.lsx{grid-column:1/-1}.lsb{grid-column:1/-1;gap:var(--sp-gap)}.lsb i{height:3px}
 .gmlog{height:109px!important;max-height:none!important;overflow:hidden;border-top:1px solid #8d9a7c}
 .gmlog li{position:absolute;left:0;right:0;top:0;height:36px;box-sizing:border-box;padding:0!important;align-items:center;border-top:0!important;border-bottom:1px solid #8d9a7c;will-change:transform}
+.eq360{isolation:isolate}.eq360 img#eq360j{opacity:0;will-change:opacity}
+.eq360 canvas{position:absolute;left:50%;top:50%;width:100%;height:100%;object-fit:contain;transform:translate(-50%,-52%) scale(var(--s,1.28));pointer-events:none}
+@media(max-width:760px){.eq360 canvas{transform:translate(-50%,-50%) scale(var(--sm,1.01))}}
 </style><script>try{history.scrollRestoration='manual'}catch(e){}scrollTo(0,0);addEventListener('pageshow',function(){if(document.body.classList.contains('ld'))scrollTo(0,0)});</script></head><body class="ld">
 <div id="cu"></div>
 <div id="gd" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="mg l"></span><span class="mg r"></span><span class="mid"></span></div><div id="gdb" aria-hidden="true"></div>
@@ -746,7 +749,7 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
  <div class="sh"><div><span class="no" data-rv>03 / Оборудование в фокусе</span><h2><span class="ln"><span>Создано быть <em>в игре.</em></span></span></h2></div><div><p class="si" data-rv>Две оригинальные модели LASERWAR. Тяните бластер мышью или пальцем: оба вращаются на 360°.</p><a class="tl" href="https://laserwar.com/equipments" target="_blank" rel="noopener">ВЕСЬ КАТАЛОГ<i class="bm"></i></a></div></div>
  <div class="eqv" id="eqv">
   <div class="eqs m360" id="eqs">
-   <div class="eq360" id="eq360"><img id="eq360i" src="img/ranger360/1-00.webp" alt="AR-15 Ranger, обзор 360°" draggable="false"></div>
+   <div class="eq360" id="eq360"><canvas id="eq360c" width="1300" height="975" role="img" aria-label="AR-15 Ranger, обзор 360°"></canvas></div>
    
    <span class="eqsh" id="eqsh"></span>
    <i class="eqb a"></i><i class="eqb b"></i><i class="eqb c"></i><i class="eqb d"></i>
@@ -1027,28 +1030,33 @@ function eqInfo(i,anim){const m=EQ[i];const set=()=>{$('#eqk').textContent=m.k;$
  if(anim&&G)gsap.fromTo('#eqbody',{opacity:0,y:14},{opacity:1,y:0,duration:.6,ease:'power3.out',onStart:set});else set()}
 eqInfo(0,false);
 /* ---- Ranger 360 sequence ---- */
-const R3={lv:0,x:0,v:0,drag:null,auto:true,idle:0,shown:-1,shownLv:-1};
+const R3={lv:0,x:0,t:0,v:0,drag:null,auto:false,idle:0,shown:-1,shownLv:-1,s0:'',s1:'',lt:0};
 let SET='ranger360';
 const f360=(l,x)=>`img/${SET}/${l+1}-${String(x).padStart(2,'0')}.webp`;
-const preC={};const preload=l=>{const k=SET+l;if(preC[k])return;preC[k]=1;for(let i=0;i<24;i++){const im=new Image();im.src=f360(l,i)}};
+const FR={};const getF=(l,x)=>{const u=f360(l,x);let im=FR[u];if(!im){im=FR[u]=new Image();im.decoding='async';im.src=u}return im};const preC={};const preload=l=>{const k=SET+l;if(preC[k])return;preC[k]=1;for(let i=0;i<24;i++)getF(l,i)};
 preload(0);setTimeout(()=>{preload(1);preload(2)},1800);
-const i360=$('#eq360i'),v360=$('#eq360');
-function r360render(){const xi=((Math.round(R3.x)%24)+24)%24;if(xi!==R3.shown||R3.lv!==R3.shownLv){R3.shown=xi;R3.shownLv=R3.lv;i360.src=f360(R3.lv,xi);if(eqs.classList.contains('m360'))$('#eqx').textContent=`КАДР ${String(xi+1).padStart(2,'0')} / 24 · НАКЛОН ${R3.lv+1}`}}
-v360.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;v360.setPointerCapture(e.pointerId);R3.auto=false;R3.v=0;R3.drag={px:e.clientX,py:e.clientY,x:R3.x,lv:R3.lv,lx:e.clientX}});
-v360.addEventListener('pointermove',e=>{const d=R3.drag;if(!d)return;R3.x=d.x+(e.clientX-d.px)/16;R3.lv=Math.max(0,Math.min(2,Math.round(d.lv+(e.clientY-d.py)/90)));R3.v=(e.clientX-d.lx)/16*.6;d.lx=e.clientX;r360render()});
+const v360=$('#eq360'),cv=$('#eq360c'),cx=cv.getContext('2d');let cur=null,prevI=null,fs=0,fadeD=520,dirty=true;
+const ok=im=>im&&im.complete&&im.naturalWidth;
+function r360render(){const near=((Math.round(R3.x)%24)+24)%24;const im=getF(R3.lv,near);
+ if(im!==cur&&ok(im)){prevI=cur;cur=im;fs=performance.now();fadeD=(R3.drag||!R3.auto)?100:300;dirty=true;
+  if(near!==R3.shown){R3.shown=near;if(eqs.classList.contains('m360'))$('#eqx').textContent=`КАДР ${String(near+1).padStart(2,'0')} / 24 · НАКЛОН ${R3.lv+1}`}}
+ const ft=prevI?Math.min(1,(performance.now()-fs)/fadeD):1;
+ if(dirty||ft<1){if(ok(cur)){cx.globalAlpha=1;cx.clearRect(0,0,cv.width,cv.height);cx.drawImage(cur,0,0,cv.width,cv.height);if(ft<1&&ok(prevI)){cx.globalAlpha=1-ft;cx.drawImage(prevI,0,0,cv.width,cv.height);cx.globalAlpha=1}dirty=ft<1}}}
+v360.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;v360.setPointerCapture(e.pointerId);R3.auto=false;R3.v=0;R3.drag={px:e.clientX,py:e.clientY,x:R3.t,lv:R3.lv,lx:e.clientX}});
+v360.addEventListener('pointermove',e=>{const d=R3.drag;if(!d)return;R3.t=d.x+(e.clientX-d.px)/16;R3.lv=Math.max(0,Math.min(2,Math.round(d.lv+(e.clientY-d.py)/90)));R3.v=(e.clientX-d.lx)/16*.6;d.lx=e.clientX;r360render()});
 const r360end=()=>{if(R3.drag){R3.drag=null;R3.idle=performance.now()}};
 v360.addEventListener('pointerup',r360end);v360.addEventListener('pointercancel',r360end);
 let r360vis=false;if('IntersectionObserver'in window)new IntersectionObserver(es=>{r360vis=es[0].isIntersecting},{threshold:0}).observe(eqs);else r360vis=true;
-(function r360loop(){
- if(r360vis&&eqs.classList.contains('m360')&&!R3.drag){
-  if(!R3.auto&&performance.now()-R3.idle>3500&&Math.abs(R3.v)<.01)R3.auto=true;
-  if(R3.auto)R3.x+=.022;else{R3.x+=R3.v;R3.v*=.9}
-  r360render()}
- if(!RM)requestAnimationFrame(r360loop)})();
+(function r360loop(t){const dt=Math.min(50,t-(R3.lt||t)||16.7);R3.lt=t;const k=dt/16.7;
+ if(r360vis&&eqs.classList.contains('m360')){
+  if(!R3.drag){
+   R3.t+=R3.v*k;R3.v*=Math.pow(.93,k)}
+  R3.x+=(R3.t-R3.x)*(1-Math.pow(1-.14,k));r360render()}
+ if(!RM)requestAnimationFrame(r360loop)})(0);
 r360render();
 /* ---- switching Ranger <-> Hellfire (both 360 sequences) ---- */
 function eqGo(i){if(i===eqCur||eqBusy)return;eqBusy=true;eqCur=i;eqInfo(i,true);
- gsap.to(v360,{opacity:0,duration:.35,onComplete:()=>{SET=i===0?'ranger360':'hellfire360';R3.x=0;R3.lv=0;R3.v=0;R3.auto=true;R3.shown=-1;preload(0);r360render();gsap.fromTo(v360,{opacity:0},{opacity:1,duration:.55,onComplete:()=>{eqBusy=false;gsap.set(v360,{clearProps:'opacity'})}});setTimeout(()=>{preload(1);preload(2)},800)}})}
+ gsap.to(v360,{opacity:0,duration:.35,onComplete:()=>{SET=i===0?'ranger360':'hellfire360';cv.style.setProperty('--s',i===0?1.28:1.1);cv.style.setProperty('--sm',i===0?1.01:.88);R3.x=0;R3.t=0;R3.lv=0;cur=null;prevI=null;dirty=true;R3.v=0;R3.auto=false;R3.shown=-1;preload(0);r360render();gsap.fromTo(v360,{opacity:0},{opacity:1,duration:.55,onComplete:()=>{eqBusy=false;gsap.set(v360,{clearProps:'opacity'})}});setTimeout(()=>{preload(1);preload(2)},800)}})}
 $$('#eqtabs button').forEach(b=>b.addEventListener('click',()=>eqGo(+b.dataset.i)));
 gsap.from('.eqs',{clipPath:'inset(0 100% 0 0)',duration:1.3,ease:'power4.inOut',scrollTrigger:{trigger:'#eqv',start:'top 82%',once:true}});
 gsap.from('.eqi',{y:60,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#eqv',start:'top 82%',once:true}});
