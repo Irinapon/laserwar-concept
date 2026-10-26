@@ -5,9 +5,9 @@
 <title>LASERWAR — концепт 3: Полевая система</title>
 <link rel="icon" href="img/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#eeeee7;--red:#ed3827;--black:#171918;--line:#3c3f3b;--mut:#8e9584;--d:'Oswald','Arial Narrow',Impact,sans-serif;--m:'JetBrains Mono',ui-monospace,monospace;--b:'Inter',Arial,sans-serif}
+:root{--paper:#eeeee7;--red:#ed3827;--black:#171918;--line:#3c3f3b;--mut:#8e9584;--d:'Oswald','Arial Narrow',Impact,sans-serif;--m:'Inter',Arial,sans-serif;--b:'Inter',Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
 body{background:var(--black);color:var(--paper);font-family:var(--b);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -343,7 +343,7 @@ h2 em{font-style:normal;color:var(--red)}
  .tabs{grid-template-columns:repeat(5,1fr)}.tabs button{padding:9px 2px;font-size:8px;text-align:center}.tabs button span{display:block;margin:0 0 2px}.sd{grid-template-columns:1fr;gap:6px}.sd h3{font-size:18px}.sd p{font-size:11px;line-height:1.5}.chs{display:none}
  .eqs{aspect-ratio:4/3}.eq360 img{transform:translate(-50%,-50%) scale(1.12)}.eqt{display:none}.eqa{width:36px;height:36px;top:auto;bottom:10px;margin-top:0}.eqa.l{left:10px}.eqa.r{right:10px}.eqgl{left:54px;right:54px;bottom:20px;font-size:8px;text-align:center}.eqx{display:none}.eqbody{padding:22px 18px}.eqtabs button{padding:14px 12px;font-size:11px}
  .tech,.ct,.sp,.faq,.cn{display:block}.tli,.cs,.spl{margin-top:32px}.nums{grid-template-columns:1fr 1fr}.nums div{padding-left:0!important;padding-bottom:18px;border:0}.team{padding:16px 6px 0}
- .ag{grid-template-columns:1fr;gap:34px}.vn:nth-child(2){padding-top:0}.vn .iw{aspect-ratio:16/10}.mq{margin:60px -20px 0}
+ .ag{grid-template-columns:1fr;gap:34px}.vn:nth-child(2){padding-top:0}.vn .iw{aspect-ratio:16/10}.mq{margin:60px calc(-1*var(--sp-x)) 0}
  .ls{grid-template-columns:1fr 1fr;gap:26px 16px}.lst .n{font-size:72px}.lst h3{font-size:20px}.faq>div:last-child{margin-top:30px}.faq summary{font-size:16px}
  .bf{gap:20px 16px}.foot{padding:44px 20px 0}.fmn{grid-template-columns:1fr 1fr;gap:28px 18px}.fmn>div:first-child{grid-column:1/-1}.fb{flex-direction:column}.fb div{flex-wrap:wrap}
  #pre .in{padding:4vh 20px}
@@ -429,7 +429,7 @@ h2 em{font-style:normal;color:var(--red)}
  --sp-title gap card title -> card text                       */
 :root{--sp-x:44px;--sp-sec:110px;--sp-head:56px;--sp-gap:20px;--sp-card:28px;--sp-label:22px;--sp-lead:24px;--sp-title:12px}
 @media (max-width:1100px){:root{--sp-x:28px;--sp-sec:84px}}
-@media (max-width:760px){:root{--sp-x:20px;--sp-sec:62px;--sp-head:30px;--sp-gap:16px;--sp-card:22px;--sp-label:18px;--sp-lead:18px}}
+@media (max-width:760px){:root{--sp-x:10px;--sp-sec:62px;--sp-head:30px;--sp-gap:16px;--sp-card:22px;--sp-label:18px;--sp-lead:18px}}
 .sec:not(.sys){padding:var(--sp-sec) var(--sp-x)}
 .hmain{padding-left:var(--sp-x);padding-right:var(--sp-x)}.bot,.header{margin-left:var(--sp-x);margin-right:var(--sp-x)}.header{padding:0;margin:0 0}.header{padding:0 var(--sp-x)}
 .foot{padding-left:var(--sp-x);padding-right:var(--sp-x)}
@@ -455,6 +455,9 @@ h2 em{font-style:normal;color:var(--red)}
 .cn>:first-child{grid-column:1/7}.cn>.bf{grid-column:7/13}
 .ag>.vn:first-child{grid-column:1/8}.ag>.vn:last-child{grid-column:8/13}
 .fms{gap:var(--sp-gap);background:transparent}.fms>.fc{min-width:0}h2,h3,.eqn{overflow-wrap:break-word}.tc3,.stiles,.aud,.ls{min-width:0}.fc{border:1px solid #b3b8a9}
+/* hero: 4 формата на той же сетке, что карточки блока 01 (4 колонки, gap = --sp-gap) */
+@media(min-width:761px){.bot{gap:0;border-top:0;grid-template-columns:calc((100% - var(--sp-gap))/4) calc((100% + var(--sp-gap))/4) calc((100% + var(--sp-gap))/4) calc((100% - var(--sp-gap))/4)}.bot .fm{border:1px solid var(--line);margin-left:-1px;padding:var(--sp-in)}.bot .fm:first-child{margin-left:0}}
+:root{--sp-in:20px}.fms .fc{padding:0 var(--sp-in) var(--sp-in)}.fms .fp{margin:0 calc(-1*var(--sp-in)) var(--sp-in)}
 .eqv{align-items:stretch}.eqs{aspect-ratio:auto;min-height:470px}
 @media (max-width:1100px){.eqs{aspect-ratio:16/10;min-height:0}.eqv,.sp,.faq,.cn,.ag,.sh,.th{grid-template-columns:minmax(0,1fr)}.sh>:first-child,.th>:first-child,.sh>:last-child,.th>:last-child,.eqv>.eqs,.eqv>.eqi,.sp>.spl2,.sp>.stiles,.faq>.fql,.faq>.fqr,.cn>:first-child,.cn>.bf,.ag>.vn:first-child,.ag>.vn:last-child{grid-column:1/-1}.sh .si{margin-top:0}}
 /* ===== TYPE SCALE (single source of truth) =====
@@ -483,7 +486,7 @@ h1,h2,h3,.eqn,.fm strong,.cst b,.spl a{text-wrap:balance}
 p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 @media (max-width:760px){
  .huge{line-height:1.1}.huge-w{padding-bottom:5vw}
- :root{--t-h2:clamp(40px,11.5vw,54px);--t-h3:22px;--t-num:clamp(48px,14vw,64px);--t-l:20px;--t-m:16px;--t-s:11px}
+ :root{--t-h2:clamp(40px,11.5vw,54px);--t-h3:22px;--t-num:clamp(48px,14vw,64px);--t-l:20px;--t-m:16px;--t-s:12px}
  .tabs button{font-size:var(--t-ctl)}
 }
 
@@ -541,7 +544,7 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 .pn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.4s cubic-bezier(.22,1,.36,1),filter .9s;filter:saturate(.7) brightness(.62)}
 .pn.on img{transform:scale(1);filter:none}
 .pn:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,22,14,0) 35%,rgba(16,22,14,.92) 100%);pointer-events:none}
-.pcap{position:absolute;left:var(--sp-card);right:var(--sp-card);bottom:var(--sp-card);z-index:2;color:var(--paper)}
+.pcap{position:absolute;left:var(--sp-in);right:var(--sp-in);bottom:var(--sp-in);z-index:2;color:var(--paper)}
 .pcap .mc{margin:0 0 var(--sp-title)}.pcap h3{margin:0}
 .pt2{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .9s cubic-bezier(.22,1,.36,1),opacity .6s .1s,margin .9s cubic-bezier(.22,1,.36,1);margin-top:0}
 .pt2>*{overflow:hidden;min-height:0}
@@ -593,9 +596,9 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 .wkn .nm span{color:#b9c0ad}
 #company .cribbon{margin-top:0;border-top:1px solid #b4bbaa}
 @media(max-width:1100px){.wk .iw{aspect-ratio:4/3;max-height:none}.wkn{grid-template-columns:1fr 1fr;row-gap:18px}.wk:after{height:75%}}
-@media(max-width:760px){.wk{margin-left:-20px;margin-right:-20px}.wkn{left:20px;right:20px;bottom:18px}}
+@media(max-width:760px){.wk{margin-left:calc(-1*var(--sp-x));margin-right:calc(-1*var(--sp-x))}.wkn{left:var(--sp-x);right:var(--sp-x);bottom:18px}}
 /* география: карта связей */
-.gt{font:500 11px var(--m);fill:#171918;text-transform:uppercase;paint-order:stroke;stroke:#d4d9cb;stroke-width:3px}.gt.hub{font-weight:700;font-size:14px}.gt.gts{fill:#6b765e;font-size:10px}
+.gt{font:500 11px var(--m);fill:#171918;text-transform:uppercase;paint-order:stroke;stroke:#d4d9cb;stroke-width:3px}.gt.hub{font-weight:700;font-size:14px}.gt.gts{fill:#6b765e;font-size:11px}
 .gcy .gt{opacity:0;transition:opacity .7s cubic-bezier(.22,1,.36,1)}.gcy.show .gt{opacity:1}.gcy.hot .gt{opacity:1}
 .gcy circle.d{fill:#171918;transition:fill .6s}.gcy.hot circle.d{fill:#ed3827}
 /* география v2: карта на всю ширину */
@@ -612,11 +615,11 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 .gmlog{list-style:none;margin:0;padding:0;position:absolute;left:37%;bottom:26px;width:250px;min-height:0;max-height:130px;overflow:hidden}
 .gmlog li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #8d9a7c;padding:8px 0;font:var(--t-s) var(--m);text-transform:uppercase;overflow:hidden;color:var(--black)}
 .gmlog li:first-child{border-top:1px solid #8d9a7c}.gmlog li b{color:var(--red);font-weight:500;margin-right:12px}.gmlog li span{color:#4f5a45}
-.gt{font:500 11px var(--m);fill:#171918;text-transform:uppercase;paint-order:stroke;stroke:#d4d9cb;stroke-width:3px}.gt.hub{font-weight:700;font-size:14px}.gt.gts{fill:#6b765e;font-size:10px}
+.gt{font:500 11px var(--m);fill:#171918;text-transform:uppercase;paint-order:stroke;stroke:#d4d9cb;stroke-width:3px}.gt.hub{font-weight:700;font-size:14px}.gt.gts{fill:#6b765e;font-size:11px}
 .gcy .gt{opacity:0;transition:opacity .7s cubic-bezier(.22,1,.36,1)}.gcy.show .gt{opacity:1}.gcy.hot .gt{opacity:1}
 .gcy circle.d{fill:#171918;transition:fill .6s}.gcy.hot circle.d{fill:#ed3827}
 @media(max-width:1100px){.gmh>div:first-child,.gmr{grid-column:1/-1}.gmk{position:static;margin-top:16px}.gmlog{position:static;width:100%;margin-top:16px}.gmn{position:static;display:block;margin-top:8px}}
-@media(max-width:760px){.gt{font-size:17px}.gt.hub{font-size:22px}.gt.gts{font-size:15px}.gcy.mn .gt{display:none}.gmv{padding:10px}.gmk div{min-width:0;flex:1}}
+@media(max-width:760px){.gt{display:none;font-size:34px}.gt.hub{font-size:36px}.gcy.hov .gt,.gt.hub{display:block}.gt.gts{display:none}.gcy.mn .gt{display:none}.gmv{padding:10px}.gmk div{min-width:0;flex:1}}
 /* география v3: карта на всю ширину и интерактив */
 .btn:after{content:"";position:absolute;inset:0;border:1px solid var(--black);opacity:0;transition:opacity .3s;pointer-events:none;z-index:2}.btn:hover:after{opacity:1}
 .gmv{margin-left:calc(-1*var(--sp-x));margin-right:calc(-1*var(--sp-x));border-left:0;border-right:0;padding:24px var(--sp-x) 18px;cursor:crosshair}
@@ -645,6 +648,74 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 .eq360{isolation:isolate}.eq360 img#eq360j{opacity:0;will-change:opacity}
 .eq360 canvas{position:absolute;left:50%;top:50%;width:100%;height:100%;object-fit:contain;transform:translate(-50%,-52%) scale(var(--s,1.28));pointer-events:none}
 @media(max-width:760px){.eq360 canvas{transform:translate(-50%,-50%) scale(var(--sm,1.01))}}
+/* ===== TYPE: floor 12px, переносы (skill typography-system) ===== */
+.in .t span,.dbh span,.sc .r,.sc .u,.pl,.pl .h,.pl span,.foot .fb,.foot .fb span,.foot .fb div a,.foot .fb2{font-size:var(--t-lab)}
+.pcap h3{font-size:var(--t-li);line-height:1.15}.sc b{font-size:var(--t-h3)}
+h1,h2,h3,h4,.eqn,.fm strong,.cst b,.spl a,.pcap h3,.tb h3,.ask h3,.stile h3,.vn h3,.lst h3,.fc h3,.au h3,.sd h3{text-wrap:balance}
+p,li,summary,.intro,.si,.fc p,.au p,.sd p,.pf p,.eqbody p,.ti p,.vn p,.lst p,.faq .a p,.fqr .a p,.fmn p,.stile p,.ask p,.tb p,.fn,.note,.cap,.mta,.mc{text-wrap:pretty}
+.faq .a p,.fqr .a p,.eqbody p,.pf p{text-wrap:pretty}
+.fc p,.au p,.sd p,.ask p,.tb p,.stile p,.lst p,.vn p,.fn,.note,.cap,.mta,.mc,.intro,.si{text-wrap:balance}
+body{font-variant-numeric:tabular-nums}
+/* подписи схемы не должны налезать: на мелком общем плане callout'ы и радио-метки скрыты, длинная метка 03 переносится */
+#world.dense .cl,#world.dense .rd{visibility:hidden}.tg2.w2{white-space:normal;max-width:120px}
+#lsp,#sdp{text-wrap:balance}
+/* ===== MOBILE PASS ===== */
+@media(max-width:760px){
+ #pre .in{padding:max(5vh,36px) max(var(--sp-x),env(safe-area-inset-right)) max(8vh,64px) max(var(--sp-x),env(safe-area-inset-left))}#pre .c{font-size:clamp(120px,36vw,200px);line-height:.85}#pre .c small{margin-bottom:10px}
+ .fm .ft{gap:6px}.fm .ft .rt,.mta .rt,.cta .rt{margin-left:0}.mta,.cta{gap:8px}
+ .cri b{font-size:var(--t-m)}
+ .cribbon .cri:last-child:nth-child(odd){grid-column:1/-1}
+ #start .ls{grid-template-columns:minmax(0,1fr);gap:var(--sp-lead)}#start .lst p{max-width:none}
+ .tabs button{font-size:0;padding:14px 0;text-align:center;display:flex;align-items:center;justify-content:center}.tabs button span{font-size:var(--t-s);margin:0}
+ #world.dense .tg2{font-size:0}#world.dense .tg2 b{font-size:var(--t-s);margin:0}.tg2.nsx{display:none}
+}
+/* mobile hero: ружьё целиком в кадре, подписи всегда открыты */
+@media(max-width:760px){
+ .eb{align-items:flex-start;font-size:var(--t-lab)}.eb:before{flex:none;margin-top:calc((1.4em - 7px)/2)}
+ .eb .eb1,.eb .eb2{display:block}.eb .dot{display:none}.eb .eb2{white-space:nowrap}
+ .hmain{min-height:0;padding-bottom:0}
+ .vis{position:relative;inset:auto;height:392px;margin:28px calc(-1*var(--sp-x)) 0;overflow:visible}
+ .rig{width:84%;left:8%;top:22%}
+ .hs b{opacity:1!important;transform:none!important;font-size:var(--t-lab);padding:6px 8px;white-space:normal;width:max-content;max-width:132px;line-height:1.25}
+ .hs b{transform:rotate(8deg)!important;transform-origin:0 100%}
+ .hs b:before{content:"";position:absolute;width:1px;background:var(--red)}
+ .hs:nth-of-type(1) b{left:-12px;top:-56px}
+ .hs:nth-of-type(2) b{left:48px;top:-88px}
+ .hs:nth-of-type(3){display:none}
+ .hs:nth-of-type(4) b{left:-30px;top:60px}
+ .hs:nth-of-type(5) b{left:-34px;top:50px}
+ .hs b:before{display:none}
+ .bot{border-bottom:1px solid var(--line);margin-bottom:0}
+ .model{right:var(--sp-x);bottom:16px}
+}
+html{scrollbar-gutter:stable;overflow-x:clip}
+.fm .ft{align-items:center}.fm .ft .rt{margin-top:0;vertical-align:baseline}
+.mta,.cta{align-items:center}.mta .rt,.cta .rt{margin-top:0;vertical-align:baseline}
+/* ===== SECTION EDGES: 60 + 60 where background colour changes ===== */
+:root{--sp-edge:60px}
+section.sec:not(.sys)[data-et]{padding-top:var(--sp-edge)}
+section.sec:not(.sys)[data-eb]{padding-bottom:var(--sp-edge)}
+footer.foot[data-et]{padding-top:var(--sp-edge)}
+@media(max-width:760px){section.hero[data-eb]{padding-bottom:var(--sp-edge)}}
+.eqbody>.tl{align-self:flex-start}
+/* mobile geography: карта шире экрана, листается пальцем, подписи городов не меньше 12px */
+@media(max-width:760px){
+ .gmv{overflow-x:auto;overflow-y:hidden;padding:16px 0 0;scrollbar-width:thin;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+ .gmv svg{width:1100px;max-width:none;margin-bottom:-48px}
+
+ .gt{display:block;font-size:11px}.gt.hub{font-size:14px}.gt.gts{display:block;font-size:11px}.gcy.mn .gt{display:none}
+ .gmv .gmlog{position:sticky;left:var(--sp-x);right:auto;bottom:auto;width:calc(100vw - 2*var(--sp-x));margin:16px 0 0}
+ .gmv .gmn{position:sticky;left:var(--sp-x);right:auto;top:auto;display:block;width:calc(100vw - 2*var(--sp-x));margin:8px 0 16px}
+}
+.gt.edge{visibility:hidden!important}
+@media(max-width:760px){.sec.sys{padding-left:0;padding-right:0}}
+/* mobile: кнопки на всю ширину (экран минус поля слева и справа) */
+@media(max-width:760px){
+ .btn{display:flex;width:100%;max-width:none;justify-content:center;align-items:center;box-sizing:border-box}
+ .act .btn{flex:1 1 100%}
+}
+/* hero: кнопка и подпись модели стоят на одной нижней линии, одинаково близко к плашкам */
+@media(min-width:761px){.hmain{padding-bottom:var(--sp-in)}.copy{align-self:flex-end}.model{bottom:var(--sp-in)}}
 </style><script>try{history.scrollRestoration='manual'}catch(e){}scrollTo(0,0);addEventListener('pageshow',function(){if(document.body.classList.contains('ld'))scrollTo(0,0)});</script></head><body class="ld">
 <div id="cu"></div>
 <div id="gd" aria-hidden="true"><div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="mg l"></span><span class="mg r"></span><span class="mid"></span></div><div id="gdb" aria-hidden="true"></div>
@@ -666,7 +737,7 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
  <div class="hmain">
   <span class="ghost" id="ghost" aria-hidden="true">RANGER</span>
   <div class="copy">
-   <p class="eb" data-in>Производитель лазертага с 2008 · Смоленск → 100+ стран</p>
+   <p class="eb" data-in><span><span class="eb1">Производитель лазертага с 2008</span><span class="dot"> · </span><span class="eb2">Смоленск → 100+ стран</span></span></p>
    <h1 id="h1"><span class="ln"><span>Игра,</span></span><span class="ln"><span>которая</span></span><span class="ln"><span><b class="r">окупается.</b></span></span></h1>
    <p class="intro" data-in>Свой завод, 2 500+ клубов и запуск бизнеса под ключ. Оборудование, ПО и поддержка в одной системе.</p>
    <div class="act" data-in><a class="btn mg" href="#contact"><span>Подобрать комплект</span><i class="bm"></i></a><a class="sec2" href="https://t.me/Laserwar_store" target="_blank" rel="noopener">Написать в Telegram<i class="bm"></i></a><a class="sec2" href="#contact" data-f="Расширение оборудования">Стать дилером<i class="bm"></i></a></div>
@@ -716,7 +787,7 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
    </svg>
    <div class="nd bz" data-nd="0" style="left:30px;top:230px"><img src="img/ranger-side.webp" alt="Бластер AR-15 Ranger">
      <span class="co" style="left:7%;top:26%"></span><span class="cl" style="left:-6px;top:-4px">ИК-излучатель</span>
-     <span class="co" style="left:44%;top:25%"></span><span class="cl" style="left:150px;top:-26px">OLED: патроны, жизни</span>
+     <span class="co" style="left:44%;top:25%"></span><span class="cl" style="left:176px;top:-30px">OLED: патроны, жизни</span>
      <span class="co" style="left:42%;top:62%"></span><span class="cl" style="left:150px;top:210px">Магазин</span>
      <span class="tg2" style="left:0;top:-52px"><b>01</b> Бластер</span></div>
    <div class="nd" data-nd="1" style="left:520px;top:40px;width:240px">
@@ -725,7 +796,7 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
      <path class="body" d="M48 128 Q120 104 192 128 L176 252 H64 Z"/><circle class="led" cx="120" cy="166" r="7"/><circle class="led" cx="84" cy="150" r="5"/><circle class="led" cx="156" cy="150" r="5"/><circle class="led" cx="92" cy="206" r="5"/><circle class="led" cx="148" cy="206" r="5"/></svg>
     <span class="cl" style="left:150px;top:44px">Повязка</span><span class="cl" style="left:170px;top:140px">Жилет</span></div>
    <div class="nd" data-nd="2" style="left:520px;top:330px;width:240px">
-    <span class="tg2" style="left:0;top:0"><b>03</b> Игровые устройства</span>
+    <span class="tg2 w2" style="left:0;top:0"><b>03</b> Игровые устройства</span>
     <svg class="dev" id="dev" viewBox="0 0 240 240" style="margin-top:12px"><circle cx="120" cy="124" r="86" fill="none" stroke="#2a3223" stroke-width="8"/><circle id="arc" cx="120" cy="124" r="86" fill="none" stroke="#ed3827" stroke-width="8" stroke-dasharray="540" stroke-dashoffset="540" transform="rotate(-90 120 124)"/>
      <polygon points="120,72 165,98 165,150 120,176 75,150 75,98" fill="#171c15" stroke="#9aa58c" stroke-width="1.5"/><circle cx="120" cy="124" r="14" fill="#ed3827" id="core"/><path d="M120 72V40M110 46h20" stroke="#9aa58c" stroke-width="1.5"/></svg>
     <span class="cl" style="left:150px;top:108px" id="devl">База · захват</span></div>
@@ -738,7 +809,7 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
      <div class="mp" id="mp"><span class="b"></span></div>
      <div class="lg" id="lg"></div></div></div>
    <span class="tg2" style="left:845px;top:8px"><b>04</b> Программа</span>
-   <span class="tg2" style="left:770px;top:152px;color:#ed3827">радиоканал</span><span class="tg2" style="left:770px;top:432px;color:#ed3827">радиоканал</span><span class="tg2" style="left:470px;top:584px;color:#9aa58c">настройки · прошивки</span>
+   <span class="tg2 rd" style="left:768px;top:158px;color:#ed3827">радио</span><span class="tg2 rd" style="left:768px;top:478px;color:#ed3827">радио</span><span class="tg2 nsx" style="left:470px;top:584px;color:#9aa58c">настройки · прошивки</span>
   </div></div>
   <div class="tabs" id="tabs" role="tablist"><button class="on" role="tab"><span>01</span>Бластеры</button><button role="tab"><span>02</span>Датчики</button><button role="tab"><span>03</span>Устройства</button><button role="tab"><span>04</span>ПО</button><button role="tab"><span>05</span>Вся система</button></div>
   <div class="sd"><h3 id="sdt">Выберите, как играть.</h3><p id="sdp">От тактических реплик до оригинальных корпусов: подберите бластер под аудиторию, формат игры и условия работы.</p><div class="chs" id="sdc"></div></div>
@@ -771,8 +842,8 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 <section class="sec tech" id="tech">
  <div class="th"><div><span class="no" data-rv>04 / Технологии с целью</span><h2><span class="ln"><span>Меньше рутины. <em>Больше игры.</em></span></span></h2></div><a class="tl" href="https://laserwar.com/innovations" target="_blank" rel="noopener">ВСЕ ТЕХНОЛОГИИ<i class="bm"></i></a></div>
  <div class="tc3">
-  <article class="tcard" data-rv><div class="tv"><svg viewBox="0 0 360 200" aria-hidden="true"><g class="bars"><rect class="bb b1" x="36" y="34" width="288" height="30"/><rect class="bb b2" x="76" y="82" width="248" height="30"/><rect class="bb b3" x="116" y="130" width="208" height="30"/></g><g font-family="JetBrains Mono,monospace" font-size="11" fill="#eeeee7"><text x="48" y="53">10TH GEN</text><text x="88" y="101">X-GEN</text><text x="128" y="149">CYBERTAG 2.0</text></g><circle class="dot" cx="324" cy="49" r="5"/><circle class="dot" cx="324" cy="97" r="5"/><circle class="dot" cx="324" cy="145" r="5"/></svg></div><div class="tb"><span class="k">01 / Платформа</span><h3>Выберите платформу</h3><p>Поймите, чем отличаются поколения оборудования, и подберите платформу под формат и будущее расширение.</p></div></article>
-  <article class="tcard" data-rv><div class="tv"><svg viewBox="0 0 360 200" aria-hidden="true"><g font-family="JetBrains Mono,monospace" font-size="11" fill="#acb69e"><text x="36" y="42">ВРЕМЯ ИГРЫ</text><text x="36" y="84">ЖИЗНИ</text><text x="36" y="126">СЦЕНАРИЙ</text></g><g stroke="#4a563f" stroke-width="2"><line x1="132" y1="38" x2="324" y2="38"/><line x1="132" y1="80" x2="324" y2="80"/><line x1="132" y1="122" x2="324" y2="122"/></g><circle class="th1" cx="180" cy="38" r="8"/><circle class="th2" cx="240" cy="80" r="8"/><circle class="th3" cx="150" cy="122" r="8"/><rect class="go" x="36" y="150" width="288" height="30"/><text x="180" y="170" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#171918" font-weight="700">ПУСК ИГРЫ</text></svg></div><div class="tb"><span class="k">02 / Контроль</span><h3>Дайте инструктору руль</h3><p>Конфигураторы, настройки игры и программные инструменты для управления оборудованием.</p></div></article>
+  <article class="tcard" data-rv><div class="tv"><svg viewBox="0 0 360 200" aria-hidden="true"><g class="bars"><rect class="bb b1" x="36" y="34" width="288" height="30"/><rect class="bb b2" x="76" y="82" width="248" height="30"/><rect class="bb b3" x="116" y="130" width="208" height="30"/></g><g font-family="Inter,Arial,sans-serif" font-size="13" fill="#eeeee7"><text x="48" y="53">10TH GEN</text><text x="88" y="101">X-GEN</text><text x="128" y="149">CYBERTAG 2.0</text></g><circle class="dot" cx="324" cy="49" r="5"/><circle class="dot" cx="324" cy="97" r="5"/><circle class="dot" cx="324" cy="145" r="5"/></svg></div><div class="tb"><span class="k">01 / Платформа</span><h3>Выберите платформу</h3><p>Поймите, чем отличаются поколения оборудования, и подберите платформу под формат и будущее расширение.</p></div></article>
+  <article class="tcard" data-rv><div class="tv"><svg viewBox="0 0 360 200" aria-hidden="true"><g font-family="Inter,Arial,sans-serif" font-size="13" fill="#acb69e"><text x="36" y="42">ВРЕМЯ ИГРЫ</text><text x="36" y="84">ЖИЗНИ</text><text x="36" y="126">СЦЕНАРИЙ</text></g><g stroke="#4a563f" stroke-width="2"><line x1="132" y1="38" x2="324" y2="38"/><line x1="132" y1="80" x2="324" y2="80"/><line x1="132" y1="122" x2="324" y2="122"/></g><circle class="th1" cx="180" cy="38" r="8"/><circle class="th2" cx="240" cy="80" r="8"/><circle class="th3" cx="150" cy="122" r="8"/><rect class="go" x="36" y="150" width="288" height="30"/><text x="180" y="170" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#171918" font-weight="700">ПУСК ИГРЫ</text></svg></div><div class="tb"><span class="k">02 / Контроль</span><h3>Дайте инструктору руль</h3><p>Конфигураторы, настройки игры и программные инструменты для управления оборудованием.</p></div></article>
   <article class="tcard" data-rv><div class="tv"><svg viewBox="0 0 360 200" aria-hidden="true"><g class="tree" fill="none" stroke="#7d8a6d" stroke-width="2"><path d="M60 100H130M130 100V50H220M130 100V100H220M130 100V150H220M220 50H300M220 100H300M220 150H300"/></g><circle class="nd1" cx="60" cy="100" r="9"/><circle class="nd2" cx="220" cy="50" r="7"/><circle class="nd2" cx="220" cy="100" r="7"/><circle class="nd2" cx="220" cy="150" r="7"/><circle class="nd3" cx="300" cy="50" r="6"/><circle class="nd3" cx="300" cy="100" r="6"/><circle class="nd3" cx="300" cy="150" r="6"/></svg></div><div class="tb"><span class="k">03 / Развитие</span><h3>Развивайте игру</h3><p>Добавляйте цели и сценарии с помощью игровых устройств. Проверяйте совместимость перед расширением.</p></div></article>
  </div>
 </section>
@@ -865,6 +936,12 @@ p,.si,li,.faq summary,.sd p{text-wrap:pretty}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
+/* spacing rule: на границе блоков разного цвета отступ 60 + 60 (--sp-edge), одного цвета остаётся --sp-sec */
+(()=>{const bg=e=>{let c=getComputedStyle(e).backgroundColor;if(c==='rgba(0, 0, 0, 0)'||c==='transparent')c=getComputedStyle(document.body).backgroundColor;return c};
+const L=[...document.body.children].filter(e=>/^(SECTION|FOOTER)$/.test(e.tagName));
+for(let i=0;i<L.length-1;i++){const a=L[i],b=L[i+1];if(bg(a)!==bg(b)){a.setAttribute('data-eb','');b.setAttribute('data-et','')}}})();
+</script>
+<script>
 (()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const G=!!(window.gsap&&window.ScrollTrigger);const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;const touch=matchMedia('(pointer:coarse)').matches;
@@ -879,6 +956,7 @@ function tpStr(t,last){let o=t;o=o.replace(TP_RE,'$1\u00a0');
 function tp(root){const w=document.createTreeWalker(root||document.body,NodeFilter.SHOW_TEXT);const list=[];while(w.nextNode())list.push(w.currentNode);
  list.forEach(n=>{const p=n.parentElement;if(!p||p.closest('script,style,textarea,option,noscript,.huge,.mq,.ghost'))return;const t=n.textContent;if(t.trim().length<2)return;
   const isLast=!n.nextSibling&&(p.matches('p,li,.si,.sd p')||(p.tagName==='EM'&&innerWidth>760&&!p.closest('.spl2,.rdl,.gml')&&/\s/.test(t.trim())));const o=tpStr(t,isLast);if(o!==t)n.textContent=o})}
+window.tp=tp;
 const mobile=()=>innerWidth<=760;
 /* works without GSAP */
 const TABS=[
@@ -920,9 +998,9 @@ setInterval(()=>{if(simOn){ST.t=Math.max(0,ST.t-1);clock()}},1000);
 if('IntersectionObserver'in window)new IntersectionObserver(es=>{const on=es[0].isIntersecting;if(on&&!simOn){simOn=true;simLoop()}else if(!on)simOn=false},{threshold:.15}).observe($('#stage'));else{simOn=true;simLoop()}
 /* camera */
 const stg=$('#stage'),world=$('#world');const cam={x:230,y:330,z:1};let k0=1,SW=1,SH=1,PT=170,PB=190,AW=1,CX=0;
-function layout(){SW=stg.clientWidth;SH=stg.clientHeight;const m=SW<=760;const LX=m?0:456,RX=m?0:44;AW=SW-LX-RX;CX=LX+AW/2;PT=m?170:100;PB=m?290:44;k0=Math.min(AW/1200,(SH-PT-PB)/600);renderCam()}
+function layout(){SW=stg.clientWidth;SH=stg.clientHeight;const m=SW<=760;const LX=m?0:456,RX=m?0:44;AW=SW-LX-RX;CX=LX+AW/2;PT=m?208:100;PB=m?290:44;k0=Math.min(AW/1200,(SH-PT-PB)/600);renderCam()}
 function target(f){const k=Math.min(AW*.94/f.w,(SH-PT-PB)/f.h);return{x:f.x,y:f.y,z:k/k0}}
-function renderCam(){const k=k0*cam.z;world.style.setProperty('--inv',(1/k).toFixed(4));world.style.transform=`translate(${CX-cam.x*k}px,${PT+(SH-PT-PB)/2-cam.y*k}px) scale(${k})`}
+function renderCam(){const k=k0*cam.z;world.style.setProperty('--inv',(1/k).toFixed(4));world.classList.toggle('dense',k<.72);world.style.transform=`translate(${CX-cam.x*k}px,${PT+(SH-PT-PB)/2-cam.y*k}px) scale(${k})`}
 addEventListener('resize',()=>{layout();const t=target(TABS[Math.max(tabIdx,0)][3][1]);if(tabIdx>=0&&!sysST){Object.assign(cam,t);renderCam()}});
 /* mobile menu */
 const mt=$('#mt'),mm=$('#mm');const closeM=()=>{mm.classList.remove('o');mt.setAttribute('aria-expanded','false');mt.textContent='☰';document.body.style.overflow=''};
@@ -950,7 +1028,7 @@ if(!touch)$$('.mg').forEach(el=>{const xt=gsap.quickTo(el,'x',{duration:.5,ease:
 /* header hide/show */
 const hd=$('#hd');let lastY=0;ScrollTrigger.create({start:0,end:'max',onUpdate:s=>{const y=s.scroll();hd.classList.toggle('s',y>40);if(y>400)hd.classList.toggle('h',y>lastY+2&&!mm.classList.contains('o'));else hd.classList.remove('h');lastY=y}});
 /* initial states */
-const ang=mobile()?-25:-31;
+const ang=mobile()?-8:-31;
 gsap.set('#h1 .ln>span',{yPercent:140});gsap.set('[data-in]',{opacity:0,y:24});
 gsap.set('#rig',{rotation:ang+14,x:mobile()?200:500,opacity:0,filter:'blur(14px)'});gsap.set('#tg',{opacity:0,scale:.85});gsap.set('.hs',{scale:0});gsap.set('#ghost',{opacity:0,y:40});gsap.set('.fm,.bl',{opacity:0,y:30});
 gsap.set('#vis .gl',{scaleY:0,transformOrigin:'top'});gsap.set('.vt',{opacity:0});
@@ -1168,9 +1246,16 @@ ScrollTrigger.create({trigger:'#gmv',start:'top 78%',once:true,onEnter:start});}
 (()=>{const ls=document.querySelector('#start .ls');if(!ls)return;const st=[...ls.querySelectorAll('.lst')],bar=[...document.querySelectorAll('#lsd .lsb i')],p=document.getElementById('lsp'),a=document.getElementById('lsa');
 const D=[["Опишите локацию, формат, число игроков и бюджет. Мы вернёмся с первым вариантом в течение дня.", "Описать проект", "#contact"], ["Подберём бластеры, датчики и устройства под ваш формат. Сравните платформы и пакеты.", "Смотреть оборудование", "#equipment"], ["Конфигурация, сроки и стоимость доставки, коммерческие условия и гарантия 2 года.", "Прикинуть запуск", "#calc"], ["Обучение инструкторов, настройка ПО и поддержка в день запуска.", "Написать менеджеру", "#contact"]];let cur=-1,timer=null,touched=false;
 function go(i,user){if(i===cur)return;cur=i;if(user){touched=true;clearInterval(timer)}ls.classList.add('act');st.forEach((e,k)=>e.classList.toggle('on',k===i));bar.forEach((b,k)=>b.classList.toggle('f',k<=i));
- p.classList.add('sw');setTimeout(()=>{p.textContent=D[i][0];a.firstChild.textContent=D[i][1];a.setAttribute('href',D[i][2]);p.classList.remove('sw')},180)}
+ p.classList.add('sw');setTimeout(()=>{p.textContent=D[i][0];if(window.tp)window.tp(p);a.firstChild.textContent=D[i][1];a.setAttribute('href',D[i][2]);p.classList.remove('sw')},180)}
 st.forEach((e,i)=>{e.addEventListener('mouseenter',()=>go(i,1));e.addEventListener('focus',()=>go(i,1));e.addEventListener('click',()=>go(i,1))});
 go(0);ls.classList.remove('act');
 const sec=document.getElementById('start');let vis=false;new IntersectionObserver(es=>{vis=es[0].isIntersecting;clearInterval(timer);if(vis&&!touched)timer=setInterval(()=>go((cur+1)%4),4200)},{threshold:.35}).observe(sec);})();
+</script>
+<script>
+(()=>{const v=document.getElementById('gmv'),s=document.getElementById('gmsvg');if(!v||!s)return;const c=()=>{if(innerWidth>760)return;v.scrollLeft=(32.05+180)/360*s.getBoundingClientRect().width-v.clientWidth*.42;cut()};
+/* подписи, которые упираются в край карты, скрываем целиком: буква у края не должна висеть */
+let raf=0;const cut=()=>{raf=0;const b=v.getBoundingClientRect(),m=innerWidth>760?-999:6;s.querySelectorAll('.gt').forEach(t=>{const r=t.getBoundingClientRect();t.classList.toggle('edge',r.width>0&&(r.left<b.left+m||r.right>b.right-m))})};
+v.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(cut)},{passive:true});setInterval(cut,1500);
+addEventListener('load',()=>setTimeout(c,400));addEventListener('resize',c)})();
 </script>
 </body></html>
